@@ -159,7 +159,13 @@ namespace LINQSamples
             StringBuilder sb = new(2048);
 
             // Write Method Syntax Here
-
+            var list = (from product in products
+                select new
+                {
+                    Identifier = product.ProductID,
+                    ProductName = product.Name,
+                    ProductSize = product.Size
+                }).ToList();
 
             // Loop through anonymous class
             //foreach (var prod in list)
