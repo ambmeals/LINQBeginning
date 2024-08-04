@@ -168,11 +168,11 @@ namespace LINQSamples
                 }).ToList();
 
             // Loop through anonymous class
-            foreach (var prod in list)
+            foreach (var product in list)
             {
-                stringBuilder.AppendLine($"Product ID: {prod.Identifier}");
-                stringBuilder.AppendLine($"   Product Name: {prod.ProductName}");
-                stringBuilder.AppendLine($"   Product Size: {prod.ProductSize}");
+                stringBuilder.AppendLine($"Product ID: {product.Identifier}");
+                stringBuilder.AppendLine($"   Product Name: {product.ProductName}");
+                stringBuilder.AppendLine($"   Product Size: {product.ProductSize}");
             }
 
             return stringBuilder.ToString();
