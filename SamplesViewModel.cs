@@ -156,7 +156,7 @@ namespace LINQSamples
         public string AnonymousClassMethod()
         {
             List<Product> products = GetProducts();
-            StringBuilder sb = new(2048);
+            StringBuilder stringBuilder = new(2048);
 
             // Write Method Syntax Here
             var list = (from product in products
@@ -168,14 +168,14 @@ namespace LINQSamples
                 }).ToList();
 
             // Loop through anonymous class
-            //foreach (var prod in list)
-            //{
-            //  sb.AppendLine($"Product ID: {prod.Identifier}");
-            //  sb.AppendLine($"   Product Name: {prod.ProductName}");
-            //  sb.AppendLine($"   Product Size: {prod.ProductSize}");
-            //}
+            foreach (var prod in list)
+            {
+                stringBuilder.AppendLine($"Product ID: {prod.Identifier}");
+                stringBuilder.AppendLine($"   Product Name: {prod.ProductName}");
+                stringBuilder.AppendLine($"   Product Size: {prod.ProductSize}");
+            }
 
-            return sb.ToString();
+            return stringBuilder.ToString();
         }
 
         #endregion
