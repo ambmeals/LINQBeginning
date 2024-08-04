@@ -4,7 +4,7 @@
 SamplesViewModel vm = new();
 
 // Call Sample Method
-var result = vm.GetAllMethod();
+var result = vm.GetSingleColumnMethod();
 
 // Display Results
 vm.Display(result);

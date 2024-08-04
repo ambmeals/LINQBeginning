@@ -51,8 +51,8 @@ namespace LINQSamples
             List<string> list = new();
 
             // Write Query Syntax Here
-
-
+            list.AddRange(from product in products select product.Name);
+            
             return list;
         }
 
@@ -69,7 +69,7 @@ namespace LINQSamples
             List<string> list = new();
 
             // Write Method Syntax Here
-
+            list.AddRange(products.Select(product => product.Name));
 
             return list;
         }
@@ -87,7 +87,12 @@ namespace LINQSamples
             List<Product> list = new();
 
             // Write Query Syntax Here
-
+            list = (from product in products
+                    select new Product{
+                        ProductID = product.ProductID,
+                        Name = product.Name,
+                        Size = product.Size
+                    }).ToList();
 
             return list;
         }
