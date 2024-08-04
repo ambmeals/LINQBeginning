@@ -165,8 +165,7 @@ namespace LINQSamples
             StringBuilder stringBuilder = new(2048);
 
             // Write Method Syntax Here
-            var list = (from product in products
-                select new
+            var list = products.Select(product => new
                 {
                     Identifier = product.ProductID,
                     ProductName = product.Name,
