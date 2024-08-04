@@ -130,20 +130,26 @@ namespace LINQSamples
         public string AnonymousClassQuery()
         {
             List<Product> products = GetProducts();
-            StringBuilder sb = new(2048);
+            StringBuilder stringBuilder = new(2048);
 
             // Write Query Syntax Here
-
+            var list = (from product in products
+                select new
+                {
+                    Identifier = product.ProductID,
+                    ProductName = product.Name,
+                    ProductSize = product.Size
+                }).ToList();
 
             // Loop through anonymous class
-            //foreach (var prod in list)
-            //{
-            //  sb.AppendLine($"Product ID: {prod.Identifier}");
-            //  sb.AppendLine($"   Product Name: {prod.ProductName}");
-            //  sb.AppendLine($"   Product Size: {prod.ProductSize}");
-            //}
+            foreach (var product in products)
+            {
+                stringBuilder.AppendLine($"Product ID: {product.ProductID}");
+                stringBuilder.AppendLine($"   Product Name: {product.Name}");
+                stringBuilder.AppendLine($"   Product Size: {product.Size}");
+            }
 
-            return sb.ToString();
+            return stringBuilder.ToString();
         }
 
         #endregion
