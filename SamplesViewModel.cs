@@ -110,7 +110,12 @@ namespace LINQSamples
             List<Product> list = new();
 
             // Write Method Syntax Here
-
+            list = products.Select(product => new Product
+            {
+                ProductID = product.ProductID,
+                Name = product.Name,
+                Size = product.Size
+            }).ToList();
 
             return list;
         }
